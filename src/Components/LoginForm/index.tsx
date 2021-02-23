@@ -69,7 +69,10 @@ const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (): JSX.Element =>
                                 placeholder="*******"
                             />
                         </Form.Group>
-                        <Button className="mt-4" type="submit">
+                        <Button
+                            className={`mt-4 ${styles.button}`}
+                            type="submit"
+                        >
                             ENTRAR
                         </Button>
                         <div className="mt-4 d-none d-sm-block text-center">
