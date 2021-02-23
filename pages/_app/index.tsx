@@ -15,6 +15,7 @@ import { makeStore } from "@Redux";
 import "@Static/css/main.scss";
 // #endregion Local Imports
 
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 class WebApp extends App<AppWithStore> {
     static async getInitialProps({
         Component,
@@ -31,11 +32,14 @@ class WebApp extends App<AppWithStore> {
         const { Component, pageProps, store } = this.props;
 
         return (
-            <Provider store={store}>
-                <ThemeProvider theme={theme}>
-                    <Component {...pageProps} />
-                </ThemeProvider>
-            </Provider>
+            <>
+                <link rel="shortcut icon" href={`${prefix}/favicon.ico`} />
+                <Provider store={store}>
+                    <ThemeProvider theme={theme}>
+                        <Component {...pageProps} />
+                    </ThemeProvider>
+                </Provider>
+            </>
         );
     }
 }

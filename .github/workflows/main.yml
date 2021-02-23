@@ -31,7 +31,11 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn install
       - run: yarn build
+        env: 
+            NEXT_PUBLIC_BASE_PATH: /frontendchallenge.github.io
       - run: yarn export
+        env: 
+            NEXT_PUBLIC_BASE_PATH: /frontendchallenge.github.io
       - run: touch ./out/.nojekyll
 
       - name: Deploy
