@@ -46,6 +46,7 @@ class WebAppDocument extends Document {
             <Html>
                 <Head>
                     <link rel="shortcut icon" href={`${prefix}/favicon.ico`} />
+                    <title>Frontend Challenge</title>
                 </Head>
                 <body>
                     <Main />
