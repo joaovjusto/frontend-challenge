@@ -20,6 +20,7 @@ export const Default = () => (
     <Apod>
         <ApodButton>
             <LocaleButton
+                disabled={false}
                 lang={select("Language", ["tr", "en", "es"], "tr")}
                 isActive={boolean("Active", true)}
                 onClick={action("button-click")}

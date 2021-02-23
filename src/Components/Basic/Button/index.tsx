@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { IButton } from "./Button";
 // #endregion Local Imports
 
-const Container = styled.button<IButton.IProps>`
+const Container = styled.div<IButton.IProps>`
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     background-image: linear-gradient(
         to right,
