@@ -27,29 +27,39 @@ const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (): JSX.Element =>
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.minHeight}>
-                    <div className="d-flex flex-column">
-                        <h1>Olá, seja</h1>
-                        <h1>bem vindo!</h1>
-                    </div>
-                    <h3 className="mt-3 mb-5">
-                        Para acessar a plataforma, faça seu login.
-                    </h3>
-                    <Form onSubmit={() => loginUser}>
-                        <Form.Group controlId="formBasicEmail">
+                <Form onSubmit={() => loginUser}>
+                    <div className={styles.minHeight}>
+                        <div className="d-flex flex-column">
+                            <h1>Olá, seja</h1>
+                            <h1>bem vindo!</h1>
+                        </div>
+                        <h3 className="mt-3 mb-5">
+                            Para acessar a plataforma, faça seu login.
+                        </h3>
+                        <Form.Group
+                            controlId="formBasicEmail"
+                            className="position-relative"
+                        >
                             <Form.Label>E-MAIL</Form.Label>
                             <input
-                                className={validMail ? "valid" : "invalid"}
+                                className={!validMail ? styles.invalid : ""}
                                 type="email"
                                 value={login}
                                 onChange={e => setLogin(e.target.value)}
                                 placeholder="user.name@mail.com"
                                 required
                             />
+                            {!validMail ? (
+                                <small className={styles.invalidInput}>
+                                    Digite um e-mail válido;
+                                </small>
+                            ) : (
+                                ""
+                            )}
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label className="mt-3">SENHA</Form.Label>
+                            <Form.Label className="mt-4">SENHA</Form.Label>
                             <input
                                 className="invalid"
                                 value={password}
@@ -62,13 +72,22 @@ const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (): JSX.Element =>
                         <Button className="mt-4" type="submit">
                             ENTRAR
                         </Button>
-                    </Form>
-                    <div className="d-flex flex-column mt-4">
-                        <span>Esqueceu seu login ou senha?</span>
-                        <span>
-                            Clique <u>aqui</u>
-                        </span>
+                        <div className="mt-4 d-none d-sm-block text-center">
+                            <span>Esqueceu seu login ou senha?</span>
+                            <span className="d-block">
+                                Clique <u>aqui</u>
+                            </span>
+                        </div>
+                        <div className="d-block d-sm-none mb-3" />
                     </div>
+                </Form>
+                <div className="text-center mt-4 d-block d-sm-none">
+                    <span className="d-block">
+                        Esqueceu seu login ou senha?
+                    </span>
+                    <span>
+                        Clique <u>aqui</u>
+                    </span>
                 </div>
             </div>
         </>
