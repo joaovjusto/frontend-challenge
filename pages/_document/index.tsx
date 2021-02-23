@@ -10,6 +10,10 @@ import Document, {
 import { ServerStyleSheet } from "styled-components";
 // #endregion Global Imports
 
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH
+    ? `${process.env.NEXT_PUBLIC_BASE_PATH}/static`
+    : "";
+
 class WebAppDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
         const sheet = new ServerStyleSheet();
@@ -40,7 +44,9 @@ class WebAppDocument extends Document {
     render() {
         return (
             <Html>
-                <Head />
+                <Head>
+                    <link rel="shortcut icon" href={`${prefix}/favicon.ico`} />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />
