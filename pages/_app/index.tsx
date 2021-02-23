@@ -4,6 +4,7 @@ import App, { AppInitialProps, AppContext } from "next/app";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import withRedux from "next-redux-wrapper";
+import Head from "next/head";
 // #endregion Global Imports
 
 // #region Local Imports
@@ -36,7 +37,9 @@ class WebApp extends App<AppWithStore> {
 
         return (
             <>
-                <link rel="shortcut icon" href={`${prefix}/favicon.ico`} />
+                <Head>
+                    <link rel="shortcut icon" href={`${prefix}/favicon.ico`} />
+                </Head>
                 <Provider store={store}>
                     <ThemeProvider theme={theme}>
                         <Component {...pageProps} />
