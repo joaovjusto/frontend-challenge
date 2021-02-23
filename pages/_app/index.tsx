@@ -15,7 +15,9 @@ import { makeStore } from "@Redux";
 import "@Static/css/main.scss";
 // #endregion Local Imports
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH
+    ? `${process.env.NEXT_PUBLIC_BASE_PATH}/static`
+    : "";
 class WebApp extends App<AppWithStore> {
     static async getInitialProps({
         Component,
