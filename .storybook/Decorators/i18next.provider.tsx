@@ -4,6 +4,10 @@ import Backend from "i18next-xhr-backend";
 import { initReactI18next } from "react-i18next";
 const path = require("path");
 
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH
+    ? `${process.env.NEXT_PUBLIC_BASE_PATH}/static/locales/{{lng}}/{{ns}}`
+    : "../locales/{{lng}}/{{ns}}";
+
 i18n.use(initReactI18next)
     .use(Backend)
     .init({
@@ -14,8 +18,8 @@ i18n.use(initReactI18next)
             escapeValue: false,
         },
         backend: {
-            loadPath: path.join(__dirname, "../locales/{{lng}}/{{ns}}.json"),
-            addPath: path.join(__dirname, "../locales/{{lng}}/{{ns}}.missing.json"),
+            loadPath: path.join(__dirname, `${prefix}.json`),
+            addPath: path.join(__dirname, `${prefix}.missing.json`),
         },
         react: {
             useSuspense: false,
