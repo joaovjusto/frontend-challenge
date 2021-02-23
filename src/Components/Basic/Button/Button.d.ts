@@ -4,6 +4,7 @@ declare namespace IButton {
         className?: string;
         onClick?: (event: MouseEvent<HTMLDivElement, MouseEvent>) => void;
         disabled?: boolean;
+        type?: string;
     }
 }
 

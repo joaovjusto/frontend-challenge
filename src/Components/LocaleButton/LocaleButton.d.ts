@@ -3,6 +3,7 @@ declare namespace ILocaleButton {
         lang: string;
         onClick: (param: any) => void;
         isActive: boolean;
+        disabled: boolean;
     }
 }
 
