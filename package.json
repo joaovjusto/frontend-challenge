@@ -5,7 +5,6 @@
   "author": "João Justo",
   "scripts": {
     "start:dev": "nodemon",
-    "heroku-postbuild": "npm run build",
     "build": "next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node dist/index.js",
     "test": "jest --coverage",
