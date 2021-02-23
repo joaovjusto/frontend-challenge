@@ -18,6 +18,9 @@ import "@Static/css/main.scss";
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH
     ? `${process.env.NEXT_PUBLIC_BASE_PATH}/static`
     : "";
+
+console.log(prefix);
+
 class WebApp extends App<AppWithStore> {
     static async getInitialProps({
         Component,
