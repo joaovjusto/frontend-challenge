@@ -4,7 +4,6 @@ import App, { AppInitialProps, AppContext } from "next/app";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 import withRedux from "next-redux-wrapper";
-import Head from "next/head";
 // #endregion Global Imports
 
 // #region Local Imports
