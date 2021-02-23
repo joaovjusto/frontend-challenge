@@ -11,7 +11,10 @@
 
 ### Uso
 
-Após a instalação é necessário importar corretamente os componentes...
+Após a instalação é necessário instalar pela primeira vez as dependências...
+```sh
+$ yarn
+```
 
 #### Rodando em desenvolvimento
 Para rodar localhost:
