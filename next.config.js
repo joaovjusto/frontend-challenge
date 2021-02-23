@@ -4,8 +4,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer");
 const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig = {
-  basePath: isProd ? "/" : "",
-  assetPrefix: isProd ? "/" : "",
+  basePath: isProd ? "/frontendchallenge.github.io" : "",
+  assetPrefix: isProd ? "/frontendchallenge.github.io" : "",
   analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
   analyzeBrowser: ["browser", "both"].includes(process.env.BUNDLE_ANALYZE),
   bundleAnalyzerConfig: {
