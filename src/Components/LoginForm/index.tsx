@@ -36,8 +36,7 @@ const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (
                             <h1>bem vindo!</h1>
                         </div>
                         <h3 className="mt-3 mb-5">
-                            Para acessar a plataforma, faça seu login.{" "}
-                            {userInfo.auth.name}
+                            Para acessar a plataforma, faça seu login.
                         </h3>
                         <Form.Group
                             controlId="formBasicEmail"
