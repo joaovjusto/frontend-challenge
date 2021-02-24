@@ -9,10 +9,9 @@ import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import Reducers from "./Reducers";
 // #endregion Local Imports
 
-export const makeStore = (initialState: {}) => {
-    return createStore(
-        Reducers,
-        initialState,
-        composeWithDevTools(applyMiddleware(thunkMiddleware))
-    );
-};
+const store = createStore(
+    Reducers,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+);
+
+export default store;

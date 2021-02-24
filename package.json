@@ -20,6 +20,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "^9.4.4",
     "autoprefixer": "^9.6.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "cross-env": "^5.2.1",
     "dotenv": "^8.1.0",
@@ -27,6 +28,7 @@
     "http-proxy-middleware": "^0.20.0",
     "i18next-xhr-backend": "^3.2.2",
     "isomorphic-unfetch": "^3.0.0",
+    "jwt-decode": "^3.1.2",
     "next": "^9.5.3",
     "next-compose-plugins": "^2.2.0",
     "next-i18next": "^4.5.0",

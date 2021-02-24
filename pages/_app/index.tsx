@@ -10,9 +10,9 @@ import withRedux from "next-redux-wrapper";
 import { theme } from "@Definitions/Styled";
 import { appWithTranslation } from "@Server/i18n";
 import { AppWithStore } from "@Interfaces";
-import { makeStore } from "@Redux";
 
 import "@Static/css/main.scss";
+import store from "@Redux/store";
 // #endregion Local Imports
 
 class WebApp extends App<AppWithStore> {
@@ -28,7 +28,7 @@ class WebApp extends App<AppWithStore> {
     }
 
     render() {
-        const { Component, pageProps, store } = this.props;
+        const { Component, pageProps } = this.props;
 
         return (
             <>
@@ -41,5 +41,7 @@ class WebApp extends App<AppWithStore> {
         );
     }
 }
+
+const makeStore = () => store;
 
 export default withRedux(makeStore)(appWithTranslation(WebApp));

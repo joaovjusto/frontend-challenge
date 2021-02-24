@@ -2,21 +2,23 @@
 import React, { useState, useEffect } from "react";
 
 import { Form } from "react-bootstrap";
+import { connect } from "react-redux";
+import { setInfo } from "../../Redux/Actions/auth";
 import { ILoginForm } from "./LoginForm";
 import { Button } from "../Basic";
 import styles from "./LoginForm.module.scss";
 
-const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (): JSX.Element => {
-    const loginUser = (event: Event) => {
-        event.preventDefault(); // don't redirect the page
-        // where we'll add our form logic
-        console.log("das");
-    };
-
+const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (
+    props: any
+): JSX.Element => {
+    const { userInfo } = props;
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [validMail, setValidMail] = useState(true);
 
+    const loginUser = () => {
+        setInfo(login);
+    };
     useEffect(() => {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         setValidMail(
@@ -34,7 +36,8 @@ const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (): JSX.Element =>
                             <h1>bem vindo!</h1>
                         </div>
                         <h3 className="mt-3 mb-5">
-                            Para acessar a plataforma, faça seu login.
+                            Para acessar a plataforma, faça seu login.{" "}
+                            {userInfo.auth.name}
                         </h3>
                         <Form.Group
                             controlId="formBasicEmail"
@@ -71,6 +74,7 @@ const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (): JSX.Element =>
                         </Form.Group>
                         <Button
                             className={`mt-4 ${styles.button}`}
+                            onClick={() => loginUser()}
                             type="submit"
                         >
                             ENTRAR
@@ -97,4 +101,12 @@ const LoginForm: React.FunctionComponent<ILoginForm.IProps> = (): JSX.Element =>
     );
 };
 
-export { LoginForm };
+const mapStateToProps = (state: any) => ({
+    userInfo: state,
+});
+
+const mapDispatchToProps = {
+    setInfo,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
